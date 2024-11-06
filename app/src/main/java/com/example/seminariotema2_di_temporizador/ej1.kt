@@ -30,14 +30,9 @@ class ej1 : AppCompatActivity() {
 
         object : CountDownTimer(contador * 1000, 1000){
 
-            var tamanoTexto = texto.textSize.toFloat()
-
             override fun onTick(millisUntilFinished: Long) {
-                Log.v("ffff", "agkjfhs")
                 contador--
                 texto.text = contador.toString()
-                tamanoTexto += 20
-                texto.textSize = tamanoTexto
             }
 
             override fun onFinish() {

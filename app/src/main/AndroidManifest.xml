@@ -13,6 +13,12 @@
         android:theme="@style/Theme.SeminarioTema2_di_temporizador"
         tools:targetApi="31">
         <activity
+            android:name=".ej3"
+            android:exported="false" />
+        <activity
+            android:name=".ej2"
+            android:exported="false" />
+        <activity
             android:name=".imagenEj1"
             android:exported="false" />
         <activity
