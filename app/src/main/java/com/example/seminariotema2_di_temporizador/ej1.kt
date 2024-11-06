@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -18,28 +19,30 @@ class ej1 : AppCompatActivity() {
 
     private lateinit var texto : TextView
 
-    private var contador : Long = 5000
-    // ??????????????????????????????
-    @SuppressLint("MissingInflatedId")
+    private var contador : Long = 5
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ej1)
 
         texto = findViewById(R.id.contador)
+        val cambiarActividad = Intent(this, imagenEj1::class.java)
 
-        var timer = object : CountDownTimer(contador, 1000){
+        object : CountDownTimer(contador * 1000, 1000){
+
+            var tamanoTexto = texto.textSize.toFloat()
 
             override fun onTick(millisUntilFinished: Long) {
+                Log.v("ffff", "agkjfhs")
                 contador--
-                texto.text = this.toString()
+                texto.text = contador.toString()
+                tamanoTexto += 20
+                texto.textSize = tamanoTexto
             }
 
             override fun onFinish() {
-                val cambiarActividad = Intent(this, imagenEj1::class.java)
                 startActivity(cambiarActividad)
             }
-        }
-
-        timer.
+        }.start()
     }
 }
